@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 
-import type { DashboardResponse, KPI } from '../../../services/Api/dashboardService.ts';
+import type { DashboardResponse, KPI } from 'services/Api/dashboardService.ts';
+
 import { getChartTitleStr } from '../constants.ts';
 import KPICardSkeleton from './KPICardSkeleton.tsx';
 

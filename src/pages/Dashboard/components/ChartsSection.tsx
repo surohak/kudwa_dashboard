@@ -1,6 +1,7 @@
 import ReactEcharts from 'echarts-for-react';
 
-import type { ChartData, DashboardResponse } from '../../../services/Api/dashboardService.ts';
+import type { ChartData, DashboardResponse } from 'services/Api/dashboardService.ts';
+
 import { chartsColors, chartTypesMapping, getChartTitle } from '../constants.ts';
 import ChartSkeleton from './ChartSkeleton.tsx';
 

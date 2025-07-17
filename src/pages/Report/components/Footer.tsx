@@ -1,4 +1,4 @@
-import type { ReportResult } from '../../../services/Api/reportService.ts';
+import type { ReportResult } from 'services/Api/reportService.ts';
 
 const Footer = ({ reportData }: { reportData: ReportResult }) => {
   return (

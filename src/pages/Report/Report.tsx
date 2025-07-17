@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 
-import Error from '../../components/ui/Error';
-import Loading from '../../components/ui/Loading';
-import NoData from '../../components/ui/NoData';
-import { type ReportResult, reportService } from '../../services/Api/reportService';
-import type { PeriodType } from '../../services/Api/types.ts';
+import Error from 'components/ui/Error';
+import Loading from 'components/ui/Loading';
+import NoData from 'components/ui/NoData';
+
+import { type ReportResult, reportService } from 'services/Api/reportService';
+import type { PeriodType } from 'services/Api/types.ts';
+
 import { Footer, Header, ReportContent } from './components';
 
 const Report = () => {

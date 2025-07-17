@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 
-import Error from '../../components/ui/Error';
-import Loading from '../../components/ui/Loading';
-import NoData from '../../components/ui/NoData';
-import type { DashboardResponse } from '../../services/Api/dashboardService';
-import { dashboardService } from '../../services/Api/dashboardService';
-import type { PeriodType } from '../../services/Api/types.ts';
+import Error from 'components/ui/Error';
+import Loading from 'components/ui/Loading';
+import NoData from 'components/ui/NoData';
+
+import type { DashboardResponse } from 'services/Api/dashboardService';
+import { dashboardService } from 'services/Api/dashboardService';
+import type { PeriodType } from 'services/Api/types.ts';
+
 import { ChartsSection, Header, KPIsSection } from './components';
 
 const Dashboard = () => {

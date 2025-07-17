@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { PeriodType } from '../../../services/Api/types.ts';
+import type { PeriodType } from 'services/Api/types.ts';
 
 interface PeriodSwitcherProps {
   activePeriod: PeriodType;

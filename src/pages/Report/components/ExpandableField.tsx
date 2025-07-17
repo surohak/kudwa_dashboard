@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import classNames from 'classnames';
 
-import type { ReportField } from '../../../services/Api/reportService.ts';
-import type { PeriodType } from '../../../services/Api/types.ts';
-import { getPeriodValues } from '../utils.ts';
+import type { ReportField } from 'services/Api/reportService';
+import type { PeriodType } from 'services/Api/types';
+
+import { getPeriodValues } from '../utils';
 
 const ExpandableField = ({
   field,

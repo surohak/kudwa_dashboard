@@ -1,5 +1,5 @@
-import type { ProfitLossSection, ReportField } from '../../services/Api/reportService.ts';
-import type { PeriodType } from '../../services/Api/types.ts';
+import type { ProfitLossSection, ReportField } from 'services/Api/reportService';
+import type { PeriodType } from 'services/Api/types';
 
 export const getPeriodValues = (activePeriod: PeriodType, section: ProfitLossSection | ReportField) => {
   switch (activePeriod) {

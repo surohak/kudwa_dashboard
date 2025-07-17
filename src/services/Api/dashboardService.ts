@@ -1,4 +1,5 @@
-import { delay } from '../../utils/helpers.ts';
+import { delay } from 'utils/helpers.ts';
+
 import type { PeriodType, RequestConfig } from './types.ts';
 
 export interface ChartData {

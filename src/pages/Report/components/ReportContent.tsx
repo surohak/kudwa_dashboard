@@ -1,5 +1,6 @@
-import type { ReportResult } from '../../../services/Api/reportService';
-import type { PeriodType } from '../../../services/Api/types';
+import type { ReportResult } from 'services/Api/reportService.ts';
+import type { PeriodType } from 'services/Api/types.ts';
+
 import ComputedField from './ComputedField.tsx';
 import ExpandableMetric from './ExpandableMetric';
 import ExpandableSection from './ExpandableSection';

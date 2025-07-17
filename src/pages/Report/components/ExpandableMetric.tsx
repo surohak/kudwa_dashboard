@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
-import type { ComputedFieldData, ReportField } from '../../../services/Api/reportService.ts';
-import type { PeriodType } from '../../../services/Api/types.ts';
+import type { ComputedFieldData, ReportField } from 'services/Api/reportService.ts';
+import type { PeriodType } from 'services/Api/types.ts';
+
 import { getPeriodValues } from '../utils.ts';
 import ExpandableField from './ExpandableField.tsx';
 

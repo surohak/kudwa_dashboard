@@ -1,8 +1,9 @@
 import { ArrowPathIcon, CalendarIcon, ChartBarIcon } from '@heroicons/react/24/outline';
 
-import PeriodSwitcher from '../../../components/ui/PeriodSwitcher/PeriodSwitcher.tsx';
-import type { DashboardResponse } from '../../../services/Api/dashboardService.ts';
-import type { PeriodType } from '../../../services/Api/types.ts';
+import PeriodSwitcher from 'components/ui/PeriodSwitcher';
+
+import type { DashboardResponse } from 'services/Api/dashboardService';
+import type { PeriodType } from 'services/Api/types';
 
 interface HeaderProps {
   dashboardData: DashboardResponse;

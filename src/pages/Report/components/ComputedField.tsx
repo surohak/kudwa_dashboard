@@ -1,7 +1,8 @@
 import classNames from 'classnames';
 
-import type { ComputedFieldData } from '../../../services/Api/reportService.ts';
-import type { PeriodType } from '../../../services/Api/types.ts';
+import type { ComputedFieldData } from 'services/Api/reportService.ts';
+import type { PeriodType } from 'services/Api/types.ts';
+
 import { getPeriodValues } from '../utils.ts';
 
 const ComputedField = ({ field, activePeriod }: { field: ComputedFieldData; activePeriod: PeriodType }) => {
