@@ -1,7 +1,5 @@
-import Error from './Error';
 import Footer from './Footer';
 import Header from './Header';
-import Loading from './Loading';
-import NoData from './NoData';
+import ReportContent from './ReportContent';
 
-export { Error, Footer, Header, Loading, NoData };
+export { Footer, Header, ReportContent };

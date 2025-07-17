@@ -1,7 +1,7 @@
 import { ArrowPathIcon, ClockIcon, DocumentTextIcon } from '@heroicons/react/24/outline';
 import classNames from 'classnames';
 
-import PeriodSwitcher from '../../../components/ui/PeriodSwitcher.tsx';
+import PeriodSwitcher from '../../../components/ui/PeriodSwitcher/PeriodSwitcher.tsx';
 import type { ReportResult } from '../../../services/Api/reportService.ts';
 import type { PeriodType } from '../../../services/Api/types.ts';
 

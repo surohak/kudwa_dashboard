@@ -64,7 +64,7 @@ export interface ProfitLossSection {
   totalResult?: number[];
 }
 
-export interface ComputedField {
+export interface ComputedFieldData {
   id: number;
   financialReportId: number;
   name: string;
@@ -108,7 +108,7 @@ export interface ReportResult {
   createdAt: string;
   updatedAt: string;
   profitnLoss: ProfitLossSection[];
-  computedFields: ComputedField[];
+  computedFields: ComputedFieldData[];
   metrics: MetricsContainer;
 }
 

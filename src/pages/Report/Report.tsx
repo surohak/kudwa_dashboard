@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 
+import Error from '../../components/ui/Error';
+import Loading from '../../components/ui/Loading';
+import NoData from '../../components/ui/NoData';
 import { type ReportResult, reportService } from '../../services/Api/reportService';
 import type { PeriodType } from '../../services/Api/types.ts';
-import { Error, Footer, Header, Loading, NoData } from './components';
+import { Footer, Header, ReportContent } from './components';
 
 const Report = () => {
   const [activePeriod, setActivePeriod] = useState<PeriodType>('monthly');
@@ -24,7 +27,7 @@ const Report = () => {
   }, [activePeriod]);
 
   if (loading) {
-    return <Loading activePeriod={activePeriod} />;
+    return <Loading />;
   }
 
   if (error) {
@@ -46,6 +49,9 @@ const Report = () => {
             setActivePeriod={setActivePeriod}
             periodSwitching={periodSwitching}
           />
+
+          {/* Report Content */}
+          <ReportContent reportData={reportData} activePeriod={activePeriod} />
 
           {/* Footer */}
           <Footer reportData={reportData} />
