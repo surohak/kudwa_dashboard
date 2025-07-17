@@ -45,7 +45,10 @@ const ChartsSection = ({ dashboardData, periodSwitching }: ChartsSectionProps) =
     };
   };
   return (
-    <div className={`space-y-8 transition-all duration-500 ${periodSwitching ? 'opacity-50' : 'opacity-100'}`}>
+    <div
+      data-testid="charts-section"
+      className={`space-y-8 transition-all duration-500 ${periodSwitching ? 'opacity-50' : 'opacity-100'}`}
+    >
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8">
         {Object.entries(dashboardData.mainDashboard.charts).map(([key, chartsGroup]) => (
           <div

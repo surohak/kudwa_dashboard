@@ -23,6 +23,7 @@ https://kudwa-dashboard-six.vercel.app/
 - **Icons**: Heroicons
 - **Routing**: React Router
 - **Utilities**: classnames for conditional class assignment
+- **Testing**: Vitest, React Testing Library, MSW for API mocking
 
 ## Getting Started
 
@@ -67,6 +68,7 @@ kudwa_task/
 │   │   └── Report/    # Financial report page components
 │   ├── services/      # API services and data fetching
 │   │   └── Api/       # API service implementations
+│   ├── __tests__/     # Test files and testing setup
 │   └── utils/         # Utility functions
 ├── App.tsx            # Root application component
 └── main.tsx          # Application entry point
@@ -79,6 +81,38 @@ kudwa_task/
 - `npm run lint` - Run ESLint
 - `npm run lint:fix` - Fix linting issues
 - `npm run preview` - Preview production build locally
+- `npm run test` - Run tests
+- `npm run test:watch` - Run tests in watch mode
+- `npm run test:ui` - Run tests with UI
+- `npm run test:coverage` - Run tests with coverage report
+
+## Testing
+
+The project uses Vitest as the test runner along with React Testing Library for component testing and MSW (Mock Service Worker) for API mocking.
+
+### Test Structure
+
+- `src/__tests__/` - Contains test files and test setup
+  - `Dashboard.test.tsx` - Tests for Dashboard component
+  - `Report.test.tsx` - Tests for Report component
+  - `setup/` - Test setup files including API mocks
+
+### Running Tests
+
+To run the tests once:
+```bash
+npm run test
+```
+
+To run tests in watch mode during development:
+```bash
+npm run test:watch
+```
+
+To view test coverage:
+```bash
+npm run test:coverage
+```
 
 ## Key Features In Detail
 
