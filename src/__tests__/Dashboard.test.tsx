@@ -6,14 +6,16 @@ import type { DashboardResponse } from '../services/Api/dashboardService';
 import { dashboardService } from '../services/Api/dashboardService';
 import type { RequestConfig } from '../services/Api/types';
 
+const endDate = '2023-01-31';
+
 // Create a typed mock dashboard data
 const typedMockDashboardData: DashboardResponse = {
   mainDashboard: {
     period: 'monthly',
     startDate: '2023-01-01',
-    endDate: '2023-01-31',
-    metricDate: '2023-01-31',
-    dateArray: ['2023-01-01', '2023-01-15', '2023-01-31'],
+    endDate: endDate,
+    metricDate: endDate,
+    dateArray: ['2023-01-01', '2023-01-15', endDate],
     charts: {
       cashAtBank: [
         {
@@ -67,14 +69,14 @@ const typedMockDashboardData: DashboardResponse = {
         value: 120000,
         prefix: '$',
         mom: 5.2,
-        date: '2023-01-31',
+        date: endDate,
       },
       {
         name: 'Net Profit',
         value: 42000,
         prefix: '$',
         mom: 2.8,
-        date: '2023-01-31',
+        date: endDate,
       },
     ],
     topKPIs: [
@@ -83,14 +85,14 @@ const typedMockDashboardData: DashboardResponse = {
         value: 250000,
         prefix: '$',
         mom: 3.5,
-        date: '2023-01-31',
+        date: endDate,
       },
       {
         name: 'Burn Rate',
         value: 45000,
         prefix: '$',
         mom: -2.1,
-        date: '2023-01-31',
+        date: endDate,
       },
     ],
   },

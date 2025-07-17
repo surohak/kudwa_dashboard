@@ -34,6 +34,7 @@ describe('Dashboard Header Component', () => {
     mainDashboard: {
       period: 'monthly',
       startDate: '2023-01-01',
+      // eslint-disable-next-line sonarjs/no-duplicate-string
       endDate: '2023-01-31',
       metricDate: '2023-01-31',
       dateArray: ['2023-01-01', '2023-01-31'],

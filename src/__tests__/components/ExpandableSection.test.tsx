@@ -24,6 +24,8 @@ vi.mock('../../pages/Report/components/ExpandableField', () => ({
   )),
 }));
 
+const createdAt = '2023-01-01';
+
 describe('ExpandableSection component', () => {
   const mockSection: ProfitLossSection = {
     id: 1,
@@ -32,8 +34,8 @@ describe('ExpandableSection component', () => {
     type: 'income',
     description: 'Revenue section',
     style: null,
-    createdAt: '2023-01-01T00:00:00Z',
-    updatedAt: '2023-01-01T00:00:00Z',
+    createdAt: createdAt,
+    updatedAt: createdAt,
     actualData: [],
     fields: [
       {
@@ -53,8 +55,8 @@ describe('ExpandableSection component', () => {
         description: 'Product Revenue',
         style: null,
         fieldType: 'income',
-        createdAt: '2023-01-01T00:00:00Z',
-        updatedAt: '2023-01-01T00:00:00Z',
+        createdAt: createdAt,
+        updatedAt: createdAt,
         fieldId: null,
         actualData: [],
         result: [50, 100, 150],

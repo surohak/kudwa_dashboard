@@ -5,10 +5,13 @@ import ChartsSection from '../../pages/Dashboard/components/ChartsSection';
 import type { DashboardResponse } from '../../services/Api/dashboardService';
 import { mockDashboardData } from '../setup/mockData';
 
+const mockEchartsDataTestId = 'mock-echarts';
+const dataOption = 'data-option';
+
 // Mock the ReactEcharts component
 vi.mock('echarts-for-react', () => ({
   default: vi.fn().mockImplementation(({ option }) => (
-    <div data-testid="mock-echarts" data-option={JSON.stringify(option)}>
+    <div data-testid={mockEchartsDataTestId} data-option={JSON.stringify(option)}>
       Mock Chart
     </div>
   )),
@@ -20,7 +23,7 @@ describe('ChartsSection component', () => {
     render(<ChartsSection dashboardData={typedMockData} periodSwitching={false} />);
 
     // Check if charts are rendered
-    const chartElements = screen.getAllByTestId('mock-echarts');
+    const chartElements = screen.getAllByTestId(mockEchartsDataTestId);
     expect(chartElements.length).toBe(Object.keys(typedMockData.mainDashboard.charts).length);
 
     // Check if chart containers have correct classes
@@ -39,7 +42,7 @@ describe('ChartsSection component', () => {
     render(<ChartsSection dashboardData={typedMockData} periodSwitching={true} />);
 
     // No charts should be rendered
-    expect(screen.queryAllByTestId('mock-echarts').length).toBe(0);
+    expect(screen.queryAllByTestId(mockEchartsDataTestId).length).toBe(0);
 
     // Check if section has opacity class for transition
     const section = screen.getByTestId('charts-section');
@@ -50,23 +53,23 @@ describe('ChartsSection component', () => {
     const typedMockData = mockDashboardData as unknown as DashboardResponse;
     render(<ChartsSection dashboardData={typedMockData} periodSwitching={false} />);
 
-    const chartElements = screen.getAllByTestId('mock-echarts');
+    const chartElements = screen.getAllByTestId(mockEchartsDataTestId);
 
     // Find a line chart and check its options
     const lineChartElement = chartElements.find((element) => {
-      if (element.getAttribute('data-option')) {
-        const option = JSON.parse(element.getAttribute('data-option') || '{}');
-        return option.series.some((series: any) => series.type === 'line');
+      if (element.getAttribute(dataOption)) {
+        const option = JSON.parse(element.getAttribute(dataOption) || '{}');
+        return option.series.some((series: { type: string }) => series.type === 'line');
       }
       return false;
     });
 
     if (lineChartElement) {
-      const option = JSON.parse(lineChartElement.getAttribute('data-option') || '{}');
+      const option = JSON.parse(lineChartElement.getAttribute(dataOption) || '{}');
       expect(option.xAxis).toBeDefined();
       expect(option.yAxis).toBeDefined();
       expect(option.tooltip).toBeDefined();
-      expect(option.series.some((series: any) => series.smooth === true)).toBe(true);
+      expect(option.series.some((series: { smooth: boolean }) => series.smooth)).toBe(true);
     }
   });
 
@@ -93,15 +96,15 @@ describe('ChartsSection component', () => {
 
     // Find a pie chart and check its options
     const pieChartElement = chartElements.find((element) => {
-      if (element.getAttribute('data-option')) {
-        const option = JSON.parse(element.getAttribute('data-option') || '{}');
+      if (element.getAttribute(dataOption)) {
+        const option = JSON.parse(element.getAttribute(dataOption) || '{}');
         return option.series && option.series.type === 'pie';
       }
       return false;
     });
 
     if (pieChartElement) {
-      const option = JSON.parse(pieChartElement.getAttribute('data-option') || '{}');
+      const option = JSON.parse(pieChartElement.getAttribute(dataOption) || '{}');
       expect(option.series.type).toBe('pie');
       expect(option.series.radius).toBe('55%');
       expect(option.series.data).toHaveLength(2);

@@ -1,7 +1,7 @@
 import { http, HttpResponse } from 'msw';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { dashboardService } from 'services/Api/dashboardService';
+import { type DashboardResponse, dashboardService } from 'services/Api/dashboardService';
 
 import server from '../setup/handlers';
 
@@ -64,9 +64,9 @@ describe('dashboardService', () => {
 
     // Setup mock responses for each period
     getDashboardDataSpy
-      .mockResolvedValueOnce({ monthly: 'data' } as any)
-      .mockResolvedValueOnce({ quarterly: 'data' } as any)
-      .mockResolvedValueOnce({ yearly: 'data' } as any);
+      .mockResolvedValueOnce({ monthly: 'data' } as unknown as DashboardResponse)
+      .mockResolvedValueOnce({ quarterly: 'data' } as unknown as DashboardResponse)
+      .mockResolvedValueOnce({ yearly: 'data' } as unknown as DashboardResponse);
 
     await dashboardService.getAllPeriodData(mockConfig);
 

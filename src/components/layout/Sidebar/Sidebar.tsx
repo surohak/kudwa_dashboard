@@ -69,6 +69,7 @@ const Sidebar = () => {
                 >
                   <span
                     className={`flex-shrink-0 transition-colors duration-200 ${
+                      // eslint-disable-next-line sonarjs/no-duplicate-string
                       isActive ? 'text-white' : 'text-brown'
                     } ${!isCollapsed ? 'mr-3' : ''}`}
                   >

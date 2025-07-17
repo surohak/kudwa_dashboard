@@ -25,6 +25,8 @@ vi.mock('../../pages/Report/components/ExpandableMetric', () => ({
   )),
 }));
 
+const createdAt = '2023-01-01';
+
 describe('ReportContent component', () => {
   const mockProfitLossSection = {
     id: 1,
@@ -33,8 +35,8 @@ describe('ReportContent component', () => {
     type: 'income',
     description: 'Revenue section',
     style: null,
-    createdAt: '2023-01-01T00:00:00Z',
-    updatedAt: '2023-01-01T00:00:00Z',
+    createdAt: createdAt,
+    updatedAt: createdAt,
     actualData: [],
     fields: [],
     result: [100, 200, 300],
@@ -49,8 +51,8 @@ describe('ReportContent component', () => {
     type: 'computed',
     description: 'Gross profit calculation',
     style: null,
-    createdAt: '2023-01-01T00:00:00Z',
-    updatedAt: '2023-01-01T00:00:00Z',
+    createdAt: createdAt,
+    updatedAt: createdAt,
     actualData: [],
     fields: [],
     result: [50, 100, 150],
@@ -65,8 +67,8 @@ describe('ReportContent component', () => {
     type: 'metric',
     description: 'Profit margin calculation',
     style: null,
-    createdAt: '2023-01-01T00:00:00Z',
-    updatedAt: '2023-01-01T00:00:00Z',
+    createdAt: createdAt,
+    updatedAt: createdAt,
     actualData: [],
     fields: [],
     result: [5, 10, 15],
@@ -79,8 +81,8 @@ describe('ReportContent component', () => {
     scenarioId: 123,
     startingDate: '2023-01-01',
     endingDate: '2023-01-31',
-    createdAt: '2023-01-01T00:00:00Z',
-    updatedAt: '2023-01-01T00:00:00Z',
+    createdAt: createdAt,
+    updatedAt: createdAt,
     profitnLoss: [mockProfitLossSection],
     computedFields: [mockComputedField],
     metrics: {

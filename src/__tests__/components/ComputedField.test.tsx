@@ -4,6 +4,8 @@ import { describe, expect, it } from 'vitest';
 import ComputedField from '../../pages/Report/components/ComputedField';
 import type { ComputedFieldData } from '../../services/Api/reportService';
 
+const createdAt = '2023-01-01';
+
 describe('ComputedField component', () => {
   const mockPositiveField: Partial<ComputedFieldData> = {
     id: 1,
@@ -12,8 +14,8 @@ describe('ComputedField component', () => {
     type: 'computed',
     description: null,
     style: null,
-    createdAt: '2023-01-01',
-    updatedAt: '2023-01-01',
+    createdAt: createdAt,
+    updatedAt: createdAt,
     actualData: [],
     fields: [],
     result: [1000, 2000, 3000],
@@ -28,8 +30,8 @@ describe('ComputedField component', () => {
     type: 'computed',
     description: null,
     style: null,
-    createdAt: '2023-01-01',
-    updatedAt: '2023-01-01',
+    createdAt: createdAt,
+    updatedAt: createdAt,
     actualData: [],
     fields: [],
     result: [-1000, -2000, -3000],
@@ -44,8 +46,8 @@ describe('ComputedField component', () => {
     type: 'computed',
     description: null,
     style: null,
-    createdAt: '2023-01-01',
-    updatedAt: '2023-01-01',
+    createdAt: createdAt,
+    updatedAt: createdAt,
     actualData: [],
     fields: [],
     result: [0, 0, 0],

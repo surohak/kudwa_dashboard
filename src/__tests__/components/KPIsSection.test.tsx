@@ -13,14 +13,16 @@ vi.mock('pages/Dashboard/constants.ts', () => ({
   },
 }));
 
+const endDate = '2023-01-31';
+
 describe('KPIsSection Component', () => {
   const mockDashboardData: DashboardResponse = {
     mainDashboard: {
       period: 'monthly',
       startDate: '2023-01-01',
-      endDate: '2023-01-31',
-      metricDate: '2023-01-31',
-      dateArray: ['2023-01-01', '2023-01-31'],
+      endDate: endDate,
+      metricDate: endDate,
+      dateArray: ['2023-01-01', endDate],
       charts: {
         cashAtBank: [],
         expenseSplit: [],
@@ -35,14 +37,14 @@ describe('KPIsSection Component', () => {
           value: 120000,
           prefix: '$',
           mom: 5.2, // Month-over-month change
-          date: '2023-01-31',
+          date: endDate,
         },
         {
           name: 'Net Profit',
           value: 42000,
           prefix: '$',
           mom: -2.8, // Negative change
-          date: '2023-01-31',
+          date: endDate,
         },
       ],
       topKPIs: [
@@ -51,7 +53,7 @@ describe('KPIsSection Component', () => {
           value: 85,
           prefix: '$',
           mom: 1.5,
-          date: '2023-01-31',
+          date: endDate,
         },
       ],
     },

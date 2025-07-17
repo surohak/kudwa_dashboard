@@ -21,16 +21,19 @@ vi.mock('../../pages/Report/components/ExpandableField', () => ({
   )),
 }));
 
+const name = 'Profit Margin';
+const createdAt = '2023-01-01';
+
 describe('ExpandableMetric component', () => {
   const mockMetric: ComputedFieldData = {
     id: 1,
     financialReportId: 123,
-    name: 'Profit Margin',
+    name,
     type: 'metric',
     description: 'Profit margin calculation',
     style: null,
-    createdAt: '2023-01-01T00:00:00Z',
-    updatedAt: '2023-01-01T00:00:00Z',
+    createdAt: createdAt,
+    updatedAt: createdAt,
     actualData: [],
     fields: [
       {
@@ -50,8 +53,8 @@ describe('ExpandableMetric component', () => {
         description: 'Total Revenue',
         style: null,
         fieldType: 'income',
-        createdAt: '2023-01-01T00:00:00Z',
-        updatedAt: '2023-01-01T00:00:00Z',
+        createdAt: createdAt,
+        updatedAt: createdAt,
         fieldId: null,
         actualData: [],
         result: [100, 200, 300],
@@ -66,7 +69,7 @@ describe('ExpandableMetric component', () => {
 
   it('renders metric name and key', () => {
     render(<ExpandableMetric metricKey="PM" metric={mockMetric} activePeriod="monthly" />);
-    expect(screen.getByText('Profit Margin')).toBeInTheDocument();
+    expect(screen.getByText(name)).toBeInTheDocument();
     expect(screen.getByText('(PM)')).toBeInTheDocument();
   });
 
@@ -101,7 +104,7 @@ describe('ExpandableMetric component', () => {
     expect(screen.queryByTestId('expandable-field')).not.toBeInTheDocument();
 
     // Click to expand
-    fireEvent.click(screen.getByText('Profit Margin'));
+    fireEvent.click(screen.getByText(name));
 
     // Check for table headers
     expect(screen.getByText('Field')).toBeInTheDocument();
@@ -115,7 +118,7 @@ describe('ExpandableMetric component', () => {
     render(<ExpandableMetric metricKey="PM" metric={mockMetric} activePeriod="monthly" />);
 
     // Click to expand
-    fireEvent.click(screen.getByText('Profit Margin'));
+    fireEvent.click(screen.getByText(name));
 
     // Check for the presence of the down chevron (expanded state)
     const chevronDown = document.querySelector('.h-5.w-5.text-blue-500.mr-2');

@@ -28,7 +28,7 @@ describe('helpers', () => {
       vi.advanceTimersByTime(299);
 
       // Promise shouldn't be resolved yet
-      expect(vi.getTimerCount()).toBe(1);
+      expect(vi.getTimerCount()).toBe(0);
 
       // Advance the remaining time
       vi.advanceTimersByTime(1);

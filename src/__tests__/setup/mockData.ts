@@ -1,8 +1,11 @@
+const totalRevenueTitle = 'Total Revenue';
+const netProfitTitle = 'Net Profit';
+
 // Mock dashboard data for different periods
 export const mockMonthlyDashboardData = {
   kpis: [
-    { id: 1, title: 'Total Revenue', value: 120000, change: 5.2, target: 130000 },
-    { id: 2, title: 'Net Profit', value: 42000, change: 2.8, target: 45000 },
+    { id: 1, title: totalRevenueTitle, value: 120000, change: 5.2, target: 130000 },
+    { id: 2, title: netProfitTitle, value: 42000, change: 2.8, target: 45000 },
   ],
   charts: [
     {
@@ -19,8 +22,8 @@ export const mockMonthlyDashboardData = {
 
 export const mockQuarterlyDashboardData = {
   kpis: [
-    { id: 1, title: 'Total Revenue', value: 360000, change: 4.5, target: 380000 },
-    { id: 2, title: 'Net Profit', value: 120000, change: 3.2, target: 130000 },
+    { id: 1, title: totalRevenueTitle, value: 360000, change: 4.5, target: 380000 },
+    { id: 2, title: netProfitTitle, value: 120000, change: 3.2, target: 130000 },
   ],
   charts: [
     {
@@ -35,14 +38,17 @@ export const mockQuarterlyDashboardData = {
   ],
 };
 
+const startDate = '2023-01-01';
+const endDate = '2023-01-31';
+
 // Mock complete dashboard data for ChartsSection tests
 export const mockDashboardData = {
   mainDashboard: {
     period: 'monthly',
-    startDate: '2023-01-01',
-    endDate: '2023-01-31',
-    metricDate: '2023-01-31',
-    dateArray: ['2023-01-01', '2023-01-15', '2023-01-31'],
+    startDate: startDate,
+    endDate: endDate,
+    metricDate: endDate,
+    dateArray: [startDate, '2023-01-15', endDate],
     charts: {
       cashAtBank: [
         {
@@ -92,13 +98,13 @@ export const mockDashboardData = {
   mainDashboardKPIs: {
     KPIs: [
       {
-        title: 'Total Revenue',
+        title: totalRevenueTitle,
         value: 120000,
         change: 5.2,
         target: 130000,
       },
       {
-        title: 'Net Profit',
+        title: netProfitTitle,
         value: 42000,
         change: 2.8,
         target: 45000,
@@ -126,8 +132,8 @@ export const mockReportData = {
   reportResult: {
     id: 1,
     scenarioId: 1, // Using 1 to match the test expectation
-    startingDate: '2023-01-01',
-    endingDate: '2023-01-31', // Using the expected date in tests
+    startingDate: startDate,
+    endingDate: endDate, // Using the expected date in tests
     createdAt: '2023-01-01T00:00:00Z', // Using the expected date in tests
     updatedAt: '2023-01-31T00:00:00Z', // Using the expected date in tests
     profitnLoss: [],

@@ -16,6 +16,8 @@ vi.mock('../../pages/Report/utils', () => ({
   }),
 }));
 
+const createdAt = '2023-01-01';
+
 describe('ExpandableField component', () => {
   const mockField: ReportField = {
     id: 1,
@@ -34,8 +36,8 @@ describe('ExpandableField component', () => {
     description: 'Total Revenue',
     style: null,
     fieldType: 'income',
-    createdAt: '2023-01-01T00:00:00Z',
-    updatedAt: '2023-01-01T00:00:00Z',
+    createdAt: createdAt,
+    updatedAt: createdAt,
     fieldId: null,
     actualData: [],
     result: [100, 200, 300],
@@ -58,8 +60,8 @@ describe('ExpandableField component', () => {
         description: null,
         style: null,
         fieldType: 'income',
-        createdAt: '2023-01-01T00:00:00Z',
-        updatedAt: '2023-01-01T00:00:00Z',
+        createdAt: createdAt,
+        updatedAt: createdAt,
         fieldId: null,
         actualData: [],
         result: [50, 100, 150],
