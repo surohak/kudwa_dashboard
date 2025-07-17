@@ -1,69 +1,113 @@
-# React + TypeScript + Vite
+# KUDWA Financial Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive financial dashboard application built with React, TypeScript, and Tailwind CSS. The application provides interactive data visualization for financial metrics and reports.
 
-Currently, two official plugins are available:
+## Live Demo
+https://kudwa-dashboard-six.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Interactive Dashboard**: Dynamic KPI cards and charts for financial metrics
+- **Financial Reports**: Expandable/collapsible detailed financial reports with nested data
+- **Responsive Design**: Seamlessly adapts to desktop, tablet, and mobile devices
+- **Period Switching**: Toggle between monthly, quarterly, and yearly data views
+- **Modern UI**: Clean and intuitive interface with consistent styling
+- **Adaptive Navigation**: Sidebar on desktop, bottom navigation on mobile
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Framework**: React 19 with TypeScript
+- **Build Tool**: Vite 7
+- **Styling**: Tailwind CSS
+- **Charts**: ECharts (via echarts-for-react)
+- **Icons**: Heroicons
+- **Routing**: React Router
+- **Utilities**: classnames for conditional class assignment
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- Node.js (v20.19.0 or newer)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/kudwa_task.git
+cd kudwa_task
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+## Project Structure
+
+```
+kudwa_task/
+├── public/            # Static assets and data files
+│   └── data/          # JSON data for dashboard and reports
+├── src/
+│   ├── assets/        # Images, fonts, etc.
+│   ├── components/    # Reusable UI components
+│   │   ├── layout/    # Layout components (sidebar, etc.)
+│   │   └── ui/        # UI components (buttons, cards, etc.)
+│   ├── pages/         # Page components
+│   │   ├── Dashboard/ # Main dashboard page components
+│   │   └── Report/    # Financial report page components
+│   ├── services/      # API services and data fetching
+│   │   └── Api/       # API service implementations
+│   └── utils/         # Utility functions
+├── App.tsx            # Root application component
+└── main.tsx          # Application entry point
+```
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+- `npm run lint:fix` - Fix linting issues
+- `npm run preview` - Preview production build locally
+
+## Key Features In Detail
+
+### Dashboard
+
+The dashboard displays key financial metrics and interactive charts:
+- KPI cards showing critical financial indicators
+- Interactive charts for visualizing trends and comparisons
+- Period switcher to toggle between monthly, quarterly, and yearly views
+
+### Financial Report
+
+The financial report page provides detailed financial data with:
+- Expandable/collapsible sections for organized data viewing
+- Hierarchical data display with nested fields
+- Clean formatting of financial figures
+- Consistent period switching across the application
+
+### Responsive Design
+
+The application is fully responsive:
+- Desktop: Full sidebar navigation with collapsible option
+- Mobile: Bottom navigation bar for easy thumb access
+- Properly sized content and typography across all screen sizes
+
+## Future Enhancements
+
+- User authentication and personalized dashboards
+- Data export functionality
+- Dark/light theme toggle
+- Advanced filtering options
+- Real-time data updates
