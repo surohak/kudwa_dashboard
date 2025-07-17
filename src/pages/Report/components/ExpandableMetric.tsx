@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
-import type { ComputedField } from '../../../services/Api/reportService.ts';
+import type { ComputedFieldData, ReportField } from '../../../services/Api/reportService.ts';
 import type { PeriodType } from '../../../services/Api/types.ts';
 import { getPeriodValues } from '../utils.ts';
 import ExpandableField from './ExpandableField.tsx';
@@ -12,7 +12,7 @@ const ExpandableMetric = ({
   activePeriod,
 }: {
   metricKey: string;
-  metric: ComputedField;
+  metric: ComputedFieldData;
   activePeriod: PeriodType;
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -66,7 +66,7 @@ const ExpandableMetric = ({
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {metric.fields.map((field) => (
+                {metric.fields.map((field: ReportField) => (
                   <ExpandableField key={field.id} field={field} activePeriod={activePeriod} level={0} />
                 ))}
               </tbody>
