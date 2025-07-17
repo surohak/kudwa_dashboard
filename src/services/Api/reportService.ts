@@ -17,6 +17,7 @@ export interface ActualData {
   value: number[];
   createdAt: string;
   updatedAt: string;
+  source: string | null;
 }
 
 export interface ReportField {
@@ -95,6 +96,10 @@ export interface Metric {
   yearly?: number[];
 }
 
+export interface MetricsContainer {
+  [key: string]: Metric;
+}
+
 export interface ReportResult {
   id: number;
   scenarioId: number;
@@ -104,7 +109,7 @@ export interface ReportResult {
   updatedAt: string;
   profitnLoss: ProfitLossSection[];
   computedFields: ComputedField[];
-  metrics: Metric[];
+  metrics: MetricsContainer;
 }
 
 export interface ReportData {

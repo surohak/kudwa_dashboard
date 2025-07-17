@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { ArrowPathIcon, CalendarIcon, ChartBarIcon } from '@heroicons/react/24/outline';
 import classNames from 'classnames';
 import ReactEcharts from 'echarts-for-react';
 
@@ -79,22 +80,42 @@ const Dashboard = () => {
       <div className="px-4 sm:px-6 lg:px-8 py-6">
         <div className="max-w-7xl mx-auto">
           {/* Header Section */}
-          <div className="mb-8 text-center lg:text-left">
-            <h1 className="text-3xl lg:text-4xl font-bold text-black mb-3 tracking-tight">Main Dashboard</h1>
-            <p className="text-gray-600 text-lg">
-              Period:{' '}
-              <span className="font-medium text-blue">
-                {dashboardData.mainDashboard.startDate} - {dashboardData.mainDashboard.endDate}
-              </span>
-            </p>
-            <p className="text-gray-600 text-lg">
-              Metric Date: <span className="font-medium text-blue">{dashboardData.mainDashboard.metricDate}</span>
-            </p>
-          </div>
-
-          {/* Period Switcher */}
           <div className="mb-8">
-            <PeriodSwitcher activePeriod={activePeriod} onPeriodChange={setActivePeriod} />
+            <div className="text-center lg:text-left mb-6">
+              <div className="flex items-center justify-center lg:justify-start space-x-3 mb-4">
+                <ChartBarIcon className="w-8 h-8 text-blue-600" />
+                <h1 className="text-3xl lg:text-4xl font-bold text-black tracking-tight">Main Dashboard</h1>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                  <div className="flex items-center space-x-3">
+                    <CalendarIcon className="w-5 h-5 text-blue-500" />
+                    <div>
+                      <p className="text-sm text-gray-600">Data Period</p>
+                      <p className="font-semibold text-gray-900">
+                        {dashboardData.mainDashboard.startDate} - {dashboardData.mainDashboard.endDate}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                  <div className="flex items-center space-x-3">
+                    <ArrowPathIcon className="w-5 h-5 text-green-500" />
+                    <div>
+                      <p className="text-sm text-gray-600">Metric Date</p>
+                      <p className="font-semibold text-gray-900">{dashboardData.mainDashboard.metricDate}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Period Switcher */}
+            <div className="mb-8">
+              <PeriodSwitcher activePeriod={activePeriod} onPeriodChange={setActivePeriod} />
+            </div>
           </div>
 
           {/* Charts Grid */}

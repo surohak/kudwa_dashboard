@@ -16,7 +16,7 @@ const periods: { value: PeriodType; label: string; shortLabel: string }[] = [
 const PeriodSwitcher: React.FC<PeriodSwitcherProps> = ({ activePeriod, onPeriodChange }) => {
   return (
     <div className="flex justify-center lg:justify-start">
-      <div className="flex bg-white rounded-xl shadow-sm border border-gray-200 w-full max-w-md">
+      <div className="flex bg-white rounded-xl shadow-sm border border-gray-200 w-full">
         {periods.map((period) => (
           <button
             key={period.value}
