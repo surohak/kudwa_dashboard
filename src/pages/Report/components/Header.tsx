@@ -15,10 +15,10 @@ interface HeaderProps {
 const Header = ({ reportData, activePeriod, setActivePeriod, periodSwitching }: HeaderProps) => {
   return (
     <div className="mb-2">
-      <div className="text-center lg:text-left mb-6">
-        <div className="flex items-center justify-center lg:justify-start space-x-3 mb-4">
+      <div className="text-left mb-6">
+        <div className="flex items-center justify-start space-x-3 mb-4">
           <DocumentTextIcon className="w-8 h-8 text-blue-600" />
-          <h1 className="text-3xl lg:text-4xl font-bold text-black tracking-tight">Financial Report</h1>
+          <h1 className="text-2xl lg:text-4xl font-bold text-black tracking-tight">Financial Report</h1>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">

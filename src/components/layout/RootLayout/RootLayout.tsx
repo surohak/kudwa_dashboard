@@ -4,9 +4,9 @@ import Sidebar from '../Sidebar';
 
 const RootLayout = ({ children }: { children: JSX.Element }) => {
   return (
-    <div className="flex flex-row min-h-screen relative">
+    <div className="flex flex-col md:flex-row min-h-screen relative">
       <Sidebar />
-      {children}
+      <div className="flex-grow">{children}</div>
     </div>
   );
 };

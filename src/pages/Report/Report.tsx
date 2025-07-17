@@ -39,8 +39,8 @@ const Report = () => {
   }
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <div className="px-4 sm:px-6 lg:px-8 py-6">
+    <div className="w-full min-h-screen lg:mb-0 mb-16  bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="px-4 py-4 lg:px-8 lg:py-6">
         <div className="max-w-7xl mx-auto">
           {/* Header Section */}
           <Header
