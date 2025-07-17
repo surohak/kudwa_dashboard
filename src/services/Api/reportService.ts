@@ -114,7 +114,7 @@ export interface ReportData {
 class ReportService {
   private static readonly BASE_URL = '/data/report';
 
-  async getReportData(config: RequestConfig): Promise<ReportData | null> {
+  async getReportData(config: RequestConfig): Promise<ReportResult | null> {
     try {
       config.setLoading(true);
 
@@ -128,9 +128,7 @@ class ReportService {
         return null;
       }
 
-      const data: ReportData = await response.json();
-      // console.log(data);
-      return data;
+      return (await response.json()).reportResult;
     } catch (error) {
       config.setError(`Error fetching report data: ${error}`);
       return null;

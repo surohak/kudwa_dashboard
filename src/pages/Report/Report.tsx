@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 
-import { type ReportData, reportService } from '../../services/Api/reportService';
+import PeriodSwitcher from '../../components/ui/PeriodSwitcher.tsx';
+import { type ReportResult, reportService } from '../../services/Api/reportService';
 import type { PeriodType } from '../../services/Api/types.ts';
 
 const Report = () => {
   const [activePeriod, setActivePeriod] = useState<PeriodType>('monthly');
-  const [reportData, setReportData] = useState<ReportData | null>(null);
+  const [reportData, setReportData] = useState<ReportResult | null>(null);
   const [loading, setLoading] = useState(true);
   const [periodSwitching, setPeriodSwitching] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -21,7 +22,7 @@ const Report = () => {
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activePeriod]);
-
+  console.log(reportData);
   if (loading) {
     return (
       <div className="w-full min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
@@ -63,7 +64,35 @@ const Report = () => {
     );
   }
 
-  return <div>Report</div>;
+  return (
+    <div className="w-full min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-7xl mx-auto">
+          {/* Header Section */}
+          <div className="mb-8 text-center lg:text-left">
+            <h1 className="text-3xl lg:text-4xl font-bold text-black mb-3 tracking-tight">Main Dashboard</h1>
+            <p className="text-gray-600 text-lg">
+              Period:{' '}
+              <span className="font-medium text-blue">
+                {reportData.startingDate} - {reportData.endingDate}
+              </span>
+            </p>
+            <p className="text-gray-600 text-lg">
+              Created: <span className="font-medium text-blue">{new Date(reportData.createdAt).toLocaleString()}</span>
+            </p>
+            <p className="text-gray-600 text-lg">
+              Updated: <span className="font-medium text-blue">{new Date(reportData.updatedAt).toLocaleString()}</span>
+            </p>
+          </div>
+
+          {/* Period Switcher */}
+          <div className="mb-8">
+            <PeriodSwitcher activePeriod={activePeriod} onPeriodChange={setActivePeriod} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Report;
