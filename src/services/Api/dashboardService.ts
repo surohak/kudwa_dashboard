@@ -45,7 +45,7 @@ class DashboardService {
 
   async getDashboardData(period: PeriodType, config: RequestConfig): Promise<DashboardResponse | null> {
     try {
-      config.setLoading(true);
+      config.setLoading?.(true);
 
       // Add a small delay for smooth transition
       await delay();
@@ -53,22 +53,22 @@ class DashboardService {
       const response = await fetch(`${DashboardService.BASE_URL}/${period}.json`);
 
       if (!response.ok) {
-        config.setError(`Failed to load ${period} dashboard data`);
+        config.setError?.(`Failed to load ${period} dashboard data`);
         return null;
       }
 
       return await response.json();
     } catch (error) {
-      config.setError(`Error fetching ${period} dashboard data: ${error}`);
+      config.setError?.(`Error fetching ${period} dashboard data: ${error}`);
       return null;
     } finally {
-      config.setLoading(false);
+      config.setLoading?.(false);
     }
   }
 
   async getAllPeriodData(config: RequestConfig): Promise<Record<PeriodType, DashboardResponse | null>> {
     try {
-      config.setLoading(true);
+      config.setLoading?.(true);
 
       // Add a small delay for smooth transition
       await delay();
@@ -85,10 +85,10 @@ class DashboardService {
         yearly,
       };
     } catch (error) {
-      config.setError(`Error fetching all period data: ${error}`);
+      config.setError?.(`Error fetching all period data: ${error}`);
       return { monthly: null, quarterly: null, yearly: null };
     } finally {
-      config.setLoading(false);
+      config.setLoading?.(false);
     }
   }
 }

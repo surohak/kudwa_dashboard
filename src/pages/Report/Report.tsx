@@ -1,32 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import Error from 'components/ui/Error';
 import Loading from 'components/ui/Loading';
 import NoData from 'components/ui/NoData';
 
-import { type ReportResult, reportService } from 'services/Api/reportService';
 import type { PeriodType } from 'services/Api/types.ts';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { fetchReportData, setActivePeriod } from 'store/slices/reportSlice';
 
 import { Footer, Header, ReportContent } from './components';
 
 const Report = () => {
-  const [activePeriod, setActivePeriod] = useState<PeriodType>('monthly');
-  const [reportData, setReportData] = useState<ReportResult | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [periodSwitching, setPeriodSwitching] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const dispatch = useAppDispatch();
+  const { reportData, loading, periodSwitching, error, activePeriod } = useAppSelector((state) => state.report);
 
   useEffect(() => {
-    (async () => {
-      setReportData(
-        await reportService.getReportData({
-          setError,
-          setLoading: reportData ? setPeriodSwitching : setLoading,
-        }),
-      );
-    })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activePeriod]);
+    dispatch(fetchReportData());
+  }, [dispatch]);
+
+  const handlePeriodChange = (period: PeriodType) => {
+    dispatch(setActivePeriod(period));
+  };
 
   if (loading) {
     return <Loading />;
@@ -48,7 +42,7 @@ const Report = () => {
           <Header
             reportData={reportData}
             activePeriod={activePeriod}
-            setActivePeriod={setActivePeriod}
+            setActivePeriod={handlePeriodChange}
             periodSwitching={periodSwitching}
           />
 

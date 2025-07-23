@@ -122,7 +122,7 @@ class ReportService {
 
   async getReportData(config: RequestConfig): Promise<ReportResult | null> {
     try {
-      config.setLoading(true);
+      config.setLoading?.(true);
 
       // Add a small delay for smooth transition
       await delay();
@@ -130,16 +130,16 @@ class ReportService {
       const response = await fetch(`${ReportService.BASE_URL}/report.json`);
 
       if (!response.ok) {
-        config.setError('Failed to load report data');
+        config.setError?.('Failed to load report data');
         return null;
       }
 
       return (await response.json()).reportResult;
     } catch (error) {
-      config.setError(`Error fetching report data: ${error}`);
+      config.setError?.(`Error fetching report data: ${error}`);
       return null;
     } finally {
-      config.setLoading(false);
+      config.setLoading?.(false);
     }
   }
 }

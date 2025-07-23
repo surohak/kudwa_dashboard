@@ -1,33 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import Error from 'components/ui/Error';
 import Loading from 'components/ui/Loading';
 import NoData from 'components/ui/NoData';
 
-import type { DashboardResponse } from 'services/Api/dashboardService';
-import { dashboardService } from 'services/Api/dashboardService';
 import type { PeriodType } from 'services/Api/types.ts';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { fetchDashboardData, setActivePeriod } from 'store/slices/dashboardSlice';
 
 import { ChartsSection, Header, KPIsSection } from './components';
 
 const Dashboard = () => {
-  const [activePeriod, setActivePeriod] = useState<PeriodType>('monthly');
-  const [dashboardData, setDashboardData] = useState<DashboardResponse | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [periodSwitching, setPeriodSwitching] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const dispatch = useAppDispatch();
+  const { dashboardData, loading, periodSwitching, error, activePeriod } = useAppSelector((state) => state.dashboard);
 
   useEffect(() => {
-    (async () => {
-      setDashboardData(
-        await dashboardService.getDashboardData(activePeriod, {
-          setError,
-          setLoading: dashboardData ? setPeriodSwitching : setLoading,
-        }),
-      );
-    })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activePeriod]);
+    dispatch(fetchDashboardData(activePeriod));
+  }, [dispatch, activePeriod]);
+
+  const handlePeriodChange = (period: PeriodType) => {
+    dispatch(setActivePeriod(period));
+  };
 
   if (loading) {
     return <Loading />;
@@ -46,7 +39,7 @@ const Dashboard = () => {
       <div className="px-4 sm:px-4 lg:px-8 py-6 sm:py-4">
         <div className="max-w-7xl mx-auto">
           {/* Header Section */}
-          <Header dashboardData={dashboardData} activePeriod={activePeriod} setActivePeriod={setActivePeriod} />
+          <Header dashboardData={dashboardData} activePeriod={activePeriod} setActivePeriod={handlePeriodChange} />
 
           {/* Charts Grid */}
           <ChartsSection dashboardData={dashboardData} periodSwitching={periodSwitching} />
