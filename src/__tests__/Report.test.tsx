@@ -81,7 +81,7 @@ describe('Report Page', () => {
   it('handles error states', async () => {
     // Mock API error
     vi.mocked(reportService.getReportData).mockImplementation((config: RequestConfig) => {
-      config.setError('Failed to load report data');
+      config.setError?.('Failed to load report data');
       return Promise.resolve(null);
     });
 

@@ -190,7 +190,7 @@ describe('Dashboard Page', () => {
   it('handles error states', async () => {
     // Mock API error
     vi.mocked(dashboardService.getDashboardData).mockImplementation((_, config: RequestConfig) => {
-      config.setError('Failed to load dashboard data');
+      config.setError?.('Failed to load dashboard data');
       return Promise.resolve(null);
     });
 
