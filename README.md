@@ -13,6 +13,7 @@ https://kudwa-dashboard-six.vercel.app/
 - **Period Switching**: Toggle between monthly, quarterly, and yearly data views
 - **Modern UI**: Clean and intuitive interface with consistent styling
 - **Adaptive Navigation**: Sidebar on desktop, bottom navigation on mobile
+- **State Management**: Centralized state management with Redux Toolkit
 
 ## Tech Stack
 
@@ -22,6 +23,7 @@ https://kudwa-dashboard-six.vercel.app/
 - **Charts**: ECharts (via echarts-for-react)
 - **Icons**: Heroicons
 - **Routing**: React Router
+- **State Management**: Redux Toolkit for centralized state management
 - **Utilities**: classnames for conditional class assignment
 - **Testing**: Vitest, React Testing Library, MSW for API mocking
 
@@ -68,6 +70,8 @@ kudwa_task/
 │   │   └── Report/    # Financial report page components
 │   ├── services/      # API services and data fetching
 │   │   └── Api/       # API service implementations
+│   ├── store/         # Redux store configuration
+│   │   └── slices/    # Redux slices for state management
 │   ├── __tests__/     # Test files and testing setup
 │   └── utils/         # Utility functions
 ├── App.tsx            # Root application component
@@ -138,6 +142,17 @@ The application is fully responsive:
 - Mobile: Bottom navigation bar for easy thumb access
 - Properly sized content and typography across all screen sizes
 
+### State Management with Redux
+
+The application uses Redux Toolkit for state management:
+- **Centralized Store**: Single source of truth for application state
+- **Redux Slices**: Modular state management for different features
+  - Dashboard slice for managing dashboard data and state
+  - Report slice for managing report data and state
+- **Async Thunks**: Handle asynchronous operations like API calls
+- **Type-Safe**: Fully typed Redux implementation with TypeScript
+- **Performance**: Optimized rendering with selective state subscriptions
+
 ## Future Enhancements
 
 - User authentication and personalized dashboards
@@ -145,3 +160,4 @@ The application is fully responsive:
 - Dark/light theme toggle
 - Advanced filtering options
 - Real-time data updates
+- Persistent state with localStorage/sessionStorage
